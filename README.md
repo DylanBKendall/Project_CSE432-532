@@ -2,6 +2,24 @@
 
 ## Speech Emotion Recognition (SER) Using the RAVDESS Dataset
 
+> **Repository Setup:** Add the instructor as a collaborator to your repository — **@sahamis** (available on both GitLab and GitHub).
+
+---
+
+## Table of Contents
+
+- [1. Project Overview](#1-project-overview)
+- [2. The Dataset — RAVDESS (Audio-Only)](#2-the-dataset--ravdess-audio-only)
+- [3. The MiniLearn Library](#3-the-minilearn-library)
+- [4. Feature Extraction from Audio](#4-feature-extraction-from-audio)
+- [5. ML Methods & Evaluation](#5-ml-methods--evaluation)
+- [6. Weekly Roadmap](#6-weekly-roadmap)
+- [7. Setup](#7-setup)
+- [8. Final Submission](#8-final-submission)
+- [9. Rubric](#9-rubric)
+- [10. Academic Integrity](#10-academic-integrity)
+- [References](#references)
+
 ---
 
 ## 1. Project Overview
@@ -73,11 +91,12 @@ You will develop **MiniLearn** — your own mini scikit-learn–style Python pac
 
 ### Requirements
 
-1. **Importable Python package (miniLearn):** You should be able to write statements like `from minilearn.classifiers import LogisticRegression` in your SER notebook.
-   1. **[optional]** Follow the scikit-learn API pattern. Each model must have `.fit(X, y)`, `.predict(X)`, and `.score(X, y)` methods.
+1. **Importable Python package (miniLearn):** You should be able to write statements like `from minilearn.classifiers import LogisticRegression` in your SER notebook. MiniLearn is a replacement for scikit-learn (a mini custom one), so it is a good idea to follow the scikit-learn API pattern.
+   1. **[Recommended]** Follow the scikit-learn API pattern. Each model should have `.fit(X, y)`, `.predict(X)`, and `.score(X, y)` methods, similar to scikit-learn.
    2. **Required implementations** (from scratch, using only NumPy/SciPy for numerical operations):
       - Preprocessing: feature standardization, train-test split
       - Logistic Regression (with gradient descent)
+        > **Tip:** For the learning/optimization part, you can use optimizers like `scipy.optimize.minimize` or similar, but you need to write the rest of the function yourself (e.g., logistic regression with softmax).
       - k-Nearest Neighbors (KNN)
       - Gaussian Naive Bayes
       - SVM (simplified linear)
@@ -227,6 +246,10 @@ For every plot and table, include a brief explanation of what it shows and what 
 ---
 
 ## 9. Rubric
+
+### Evaluation Approach
+
+The evaluation will be **qualitative** — you need to **own the code**. The final score will be determined based on the distribution of scores, so the highest standard determines the scale. **105% (5% bonus)** will be given to the best project. Your judgment and care will be evaluated; this is a project, not an assignment, so there is no clear direction on every step. What you bring to the table matters.
 
 ### Total: 100 points
 
