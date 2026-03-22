@@ -72,9 +72,10 @@ One of the goals of this project is to give you hands-on experience with workflo
   To clarify the two remotes: **`origin`** is _your_ fork — this is where you push your weekly commits and do all of your day-to-day work. **`upstream`** is _this_ parent repository — changes here will be infrequent and mostly limited to updates to this README, but when they happen you will want to pull them in using the commands above.
 
 - **Use proper, atomic commits.** Each commit should capture a single logical change — implementing a new feature, fixing a bug, adding a visualization, etc. Do not treat Git as a backup tool where you dump large snapshots of your entire project at once. A clear, incremental commit history shows how your work evolved and demonstrates genuine understanding.
+  - It's a good idea to setup a `.gitignore` file to exclude unnecessary files.
 - **Write meaningful commit messages.** A good commit message briefly describes _what_ changed and _why_. This is a professional skill that pays dividends in any collaborative environment.
 
-We do not formally teach Git in this course, but bringing together the right tools and practices is part of what makes this a real project rather than a textbook exercise. Your commit history is part of how your work is evaluated.
+We do not formally teach Git in this course, but bringing together the right tools and practices is part of what makes this a real project rather than a textbook exercise. Your commit history is part of how your work is evaluated. If this is first time you're using Git for a project, there are many great resources online to learn best practices.
 
 ---
 
