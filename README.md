@@ -2,7 +2,7 @@
 
 ## Speech Emotion Recognition (SER) Using the RAVDESS Dataset
 
-> **Repository Setup:** Add the instructor as a collaborator to your repository — **@sahamis** (available on both GitLab and GitHub).
+> **Repository Setup:** Add the instructor as a collaborator to your repository — **@sadid on GitLab** or **@sahamis on GitLab/GitHub** (Note the GitHub is the mirror of GitLab repo).
 
 ---
 
