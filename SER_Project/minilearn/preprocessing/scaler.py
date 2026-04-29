@@ -5,8 +5,9 @@ class StandardScaler:
     def __init__(self):
         self.mean_ = None
         self.scale_ = None
+        self.var_ = None
 
-    def fit(self, X):
+    def fit(self, X, y=None):
         X = np.asarray(X, dtype=float)
 
         self.mean_ = np.mean(X, axis=0)
@@ -19,7 +20,7 @@ class StandardScaler:
 
     def transform(self, X):
         if self.mean_ is None or self.scale_ is None:
-            raise RuntimeError("StandardScaler must be fitted before calling transform().")
+            raise RuntimeError("StandardScaler must be fit().")
 
         X = np.asarray(X, dtype=float)
         return (X - self.mean_) / self.scale_
