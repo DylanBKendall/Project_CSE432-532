@@ -21,13 +21,14 @@ class LogisticRegression:
         self.bias = 0
 
         for i in range(self.max_iter):
-            
+            return
 
 
     def predict(self, X):
-        
+        return
 
     def predict_proba(self, X):
-
+        return
 
     def score(self, X, y):
+        return
