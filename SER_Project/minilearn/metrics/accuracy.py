@@ -1,6 +1,6 @@
 def accuracy_score(y_true, y_pred):
 
-    if (y_true != y_pred):
+    if (len(y_true) != len(y_pred)):
         raise RuntimeError("Input arrays must be of same size.")
     
     sample_count = float(len(y_true))
