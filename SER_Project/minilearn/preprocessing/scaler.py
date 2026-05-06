@@ -3,11 +3,11 @@ import numpy as np
 
 class StandardScaler:
     def __init__(self):
-        self.mean_ = None
-        self.scale_ = None
+        self.mean_ = []
+        self.scale_ = []
 
     # sets mean and std to that of x
-    def fit(self, X):
+    def fit(self, X, y=None):
         X = np.asarray(X, dtype=float)
 
         # calc mean and std
@@ -16,16 +16,15 @@ class StandardScaler:
 
         return self
 
-    def transform(self, X):
-        if (self.mean_ == None or self.scale_ == None):
-            raise RuntimeError("StandardScaler must be fit().")
-        if (self.scale_ == 0):
-            return X
+    def transform(self, X, y=None):
+
+        if (not np.any(self.mean_)):
+            raise RuntimeError("Scaler must first be fit.")
 
         X = np.asarray(X, dtype=float)
 
         # returns data scaled to a mean of 0
         return (X - self.mean_) / self.scale_
 
-    def fit_transform(self, X):
+    def fit_transform(self, X, y=None):
         return self.fit(X).transform(X)

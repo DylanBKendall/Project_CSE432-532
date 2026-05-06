@@ -1,8 +1,7 @@
-import random
 import numpy as np
 import math
 
-def test_train_split(*arrays, test_size=None, train_size=None, random_state=None):
+def train_test_split(*arrays, test_size=None, train_size=None, random_state=None):
     array_length = len(arrays[0])
 
     for array in arrays:
