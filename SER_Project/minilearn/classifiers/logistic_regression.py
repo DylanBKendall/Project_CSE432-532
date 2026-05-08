@@ -14,14 +14,18 @@ class LogisticRegression:
     def fit(self, X, y):
         X = np.asarray(X)
         y = np.asarray(y)
+
         sample_count = X.shape[0]
         feature_count = X.shape[1]
+
         self.weights = np.zeros(feature_count)
         self.bias = 0
 
         for i in range(self.max_iter):
             predictions = self.sigmoid(X @ self.weights + self.bias)
             error = predictions - y
+            
+            # @ is vector multiplication
             self.weights -= self.learning_rate * (X.T @ error) / sample_count
             self.bias -= self.learning_rate * np.sum(error) / sample_count
 
