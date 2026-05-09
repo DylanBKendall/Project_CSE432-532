@@ -20,9 +20,9 @@ class KNeighborsClassifier:
         neighbor_indices = np.argsort(distances)[:self.n_neighbors]
         neighbor_labels = self.y_train[neighbor_indices]
 
-        counts = np.bincount(neighbor_labels)
+        values, counts = np.unique(neighbor_labels, return_counts=True)
         
-        return np.argmax(counts)
+        return values[np.argmax(counts)]
 
     def score(self, X, y):
         return np.mean(self.predict(X) == np.asarray(y))
