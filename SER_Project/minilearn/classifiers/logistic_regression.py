@@ -4,9 +4,9 @@ class LogisticRegression:
     def __init__(self, learning_rate=0.1, max_iter=1000):
         self.learning_rate = learning_rate
         self.max_iter = max_iter
-        self.classes = None
-        self.weights = None
-        self. bias = None
+        self.classes_ = None
+        self.weights_ = None
+        self.bias_ = None
 
     def _softmax(self, logits):
         shifted = logits - logits.max(axis=1, keepdims=True)
@@ -17,24 +17,24 @@ class LogisticRegression:
     def fit(self, X, y):
         n_samples, n_features = X.shape
         
-        self.classes = np.unique(y)
-        n_classes = len(self.classes)
+        self.classes_ = np.unique(y)
+        n_classes = len(self.classes_)
 
         one_hot = np.zeros((n_samples, n_classes))
-        one_hot[np.arange(n_samples), np.searchsorted(self.classes, y)] = 1
+        one_hot[np.arange(n_samples), np.searchsorted(self.classes_, y)] = 1
 
-        self.weights = np.zeros((n_features, n_classes))
-        self.bias = np.zeros(n_classes)
+        self.weights_ = np.zeros((n_features, n_classes))
+        self.bias_ = np.zeros(n_classes)
 
         for _ in range(self.max_iter):
-            probs = self._softmax(X @ self.weights + self.bias)
+            probs = self._softmax(X @ self.weights_ + self.bias_)
             error = probs - one_hot
 
-            self.weights -= self.learning_rate * (X.T @ error) / n_samples
-            self.bias -= self.learning_rate * error.mean(axis=0)
+            self.weights_ -= self.learning_rate * (X.T @ error) / n_samples
+            self.bias_ -= self.learning_rate * error.mean(axis=0)
 
     def predict_proba(self, X):
-        return self._softmax(X @ self.weights + self.bias)
+        return self._softmax(X @ self.weights_ + self.bias_)
 
     def predict(self, X):
-        return self.classes[self.predict_proba(X).argmax(axis=1)]
+        return self.classes_[self.predict_proba(X).argmax(axis=1)]

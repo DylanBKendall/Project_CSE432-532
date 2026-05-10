@@ -16,8 +16,7 @@ class KMeans:
         self.feature_names_in_ = None
 
 
-    def update_centroids(self, X):
-        self.cluster_centers_ = []
+    def _update_centroids(self, X):
         self.cluster_centers_.append(X[random.randint(0, X.shape[0] - 1)])
 
         for j in range(self.n_clusters - 1):
