@@ -3,10 +3,6 @@ import math
 
 def train_test_split(*arrays, test_size=None, train_size=None, random_state=None):
     array_length = len(arrays[0])
-
-    for array in arrays:
-        if (array_length != len(array)):
-            raise RuntimeError("Input arrays must be of same size.")
         
     if (test_size == None):
         if (train_size == None):
@@ -27,11 +23,11 @@ def train_test_split(*arrays, test_size=None, train_size=None, random_state=None
 
     result = []
 
-    for i in range(0, len(arrays)):
-        arrays[i] = np.array(arrays[i])
-        arrays[i] = arrays[i][permutation]
+    for array in arrays:
+        array = np.array(array)
+        array = array[permutation]
 
-        result.append(arrays[i][:split_index])
-        result.append(arrays[i][split_index:])
+        result.append(array[:split_index])
+        result.append(array[split_index:])
 
     return result
